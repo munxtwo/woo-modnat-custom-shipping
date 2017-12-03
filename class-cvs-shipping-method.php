@@ -14,7 +14,7 @@ if ( ! class_exists( 'WC_CVS_Shipping_Method' ) ) {
 
 		const DESKTOP_SERVICE_URL = 'http://cvs.map.com.tw/default.asp';
 		const MOBILE_SERVICE_URL = 'http://mcvs.map.com.tw/default.asp';
-		const CVS_NAME = 'https://modnat.com.tw';
+		const CVS_NAME = 'modnat.com.tw';
 
 		/*
 		 * Constructor.
