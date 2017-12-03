@@ -140,7 +140,7 @@ if ( ! class_exists( 'WC_Seven_Eleven_Shipping_Method' ) ) {
 			);
 
 			// Return form html
-			return $formObj->StoreMap('Select 7-11 store', 'mapForm');
+			return $formObj->StoreMap('Select store', 'mapForm');
 		}
 	}
 }

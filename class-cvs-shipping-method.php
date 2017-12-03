@@ -107,7 +107,7 @@ if ( ! class_exists( 'WC_CVS_Shipping_Method' ) ) {
 									), (wp_is_mobile() ? self::MOBILE_SERVICE_URL : self::DESKTOP_SERVICE_URL) );
 
 			// Return form html
-			return $formObj->StoreMap('Select CVS store', 'mapForm');
+			return $formObj->StoreMap('Select store', 'mapForm');
 		}
 	}
 }
