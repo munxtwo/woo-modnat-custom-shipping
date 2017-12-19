@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Modnat Custom Shipping Methods
 Plugin URI: https://modnat.com.tw
 Description: Custom Shipping Methods for WooCommerce
-Version: 1.0.1
+Version: 1.0.2
 Author: Modern Nature
 Author URI: https://modnat.com.tw
 */
@@ -44,9 +44,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		$shipping_method = WC()->session->get('chosen_shipping_methods');
 		if (empty($_POST['store_id'])) {
 			if ($shipping_method[0] == 'seven_eleven_shipping_method') {
-				wc_add_notice('Please first select a 7-11 store to proceed.', 'error');
+				wc_add_notice(__('Please first select a 7-11 store to proceed.', 'woo_modnat_custom_shipping'), 'error');
 			} else if ($shipping_method[0] == 'cvs_shipping_method') {
-				wc_add_notice('Please first select a CVS store to proceed.', 'error');
+				wc_add_notice(__('Please first select a CVS store to proceed.', 'woo_modnat_custom_shipping'), 'error');
 			}
 		}
 	}
@@ -114,18 +114,18 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	function custom_override_checkout_fields($fields) {
 		$fields['billing']['store_id'] = array(
 			'default'       => '',
-			'label'         => 'Store Id',
+			'label'         => __('Store Id', 'woo_modnat_custom_shipping'),
 			'class'         => array('hidden'),
 			'label_class'   => array('hidden')
 		);
 		$fields['billing']['store_name'] = array(
 			'default'       => '',
-			'label'         => 'Store Name',
+			'label'         => __('Store Name', 'woo_modnat_custom_shipping'),
 			'clear'         => true
 		);
 		$fields['billing']['store_address'] = array(
 			'default'       => '',
-			'label'         => 'Store Address',
+			'label'         => __('Store Address', 'woo_modnat_custom_shipping'),
 			'clear'         => true
 		);
 

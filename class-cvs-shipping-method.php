@@ -22,7 +22,7 @@ if ( ! class_exists( 'WC_CVS_Shipping_Method' ) ) {
 		public function __construct($instance_id = 0) {
 			$this->instance_id = absint( $instance_id );
 			$this->id = 'cvs_shipping_method';
-			$this->method_title = __( 'CVS Shipping Method', 'woocommerce' );
+			$this->method_title = __('CVS Shipping Method', 'woo_modnat_custom_shipping');
 
 			$this->supports  = array(
             	'shipping-zones',
@@ -48,27 +48,27 @@ if ( ! class_exists( 'WC_CVS_Shipping_Method' ) ) {
 		public function init_form_fields() {
 			$this->instance_form_fields = array(
 				'enabled' => array(
-					'title' 	=> __( 'Enable/Disable', 'woocommerce' ),
+					'title' 	=> __('Enable/Disable', 'woo_modnat_custom_shipping'),
 					'type' 		=> 'checkbox',
-					'label' 	=> __( 'Enable CVS Shipping', 'woocommerce' ),
+					'label' 	=> __('Enable CVS Shipping', 'woo_modnat_custom_shipping'),
 					'default' => 'no'
 				),
 				'title' => array(
-					'title' 		  => __( 'Method Title', 'woocommerce' ),
+					'title' 		  => __('Method Title', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'text',
-					'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-					'default'		  => __( 'CVS Shipping', 'woocommerce' ),
+					'description' => __( 'This controls the title which the user sees during checkout.', 'woo_modnat_custom_shipping' ),
+					'default'		  => __('CVS Shipping', 'woo_modnat_custom_shipping'),
 				),
 				'flatrate_fee' => array(
-					'title' 		  => 'Flat rate fee (TWD)',
+					'title' 		  => __('Flat rate fee (TWD)', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'number',
-					'description' 	  => 'This sets the flat rate fee to charge for this shipping method.',
+					'description' 	  => __('This sets the flat rate fee to charge for this shipping method.', 'woo_modnat_custom_shipping'),
 					'default'		  => '50',
 				),
 				'freeshipping_threshold' => array(
-					'title' 		  => 'Free shipping threshold amount (TWD)',
+					'title' 		  => __('Free shipping threshold amount (TWD)', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'number',
-					'description' 	  => 'This sets the cart total amount threshold for free shipping.',
+					'description' 	  => __('This sets the cart total amount threshold for free shipping.', 'woo_modnat_custom_shipping'),
 					'default'		  => '10000',
 				),
 			);
@@ -103,11 +103,11 @@ if ( ! class_exists( 'WC_CVS_Shipping_Method' ) ) {
 			$formObj = new StoreMapForm();
 			$formObj->ServiceURL = add_query_arg( array(
 									    'cvsname' => self::CVS_NAME,
-									    'cvsspot' => $existingStoreId,
+									    'cvsspot' => $existingStoreId
 									), (wp_is_mobile() ? self::MOBILE_SERVICE_URL : self::DESKTOP_SERVICE_URL) );
 
 			// Return form html
-			return $formObj->StoreMap('Select store', 'mapForm');
+			return $formObj->StoreMap(__('Select store', 'woo_modnat_custom_shipping'), 'mapForm');
 		}
 	}
 }

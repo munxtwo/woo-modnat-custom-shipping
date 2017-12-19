@@ -20,7 +20,7 @@ if ( ! class_exists( 'WC_Seven_Eleven_Shipping_Method' ) ) {
 		public function __construct($instance_id = 0) {
 			$this->instance_id = absint( $instance_id );
 			$this->id = 'seven_eleven_shipping_method';
-			$this->method_title = __( '7-11 Shipping Method', 'woocommerce' );
+			$this->method_title = __('7-11 Shipping Method', 'woo_modnat_custom_shipping' );
 
 			$this->supports  = array(
             	'shipping-zones',
@@ -50,16 +50,16 @@ if ( ! class_exists( 'WC_Seven_Eleven_Shipping_Method' ) ) {
 		public function init_form_fields() {
 			$this->instance_form_fields = array(
 				'enabled' => array(
-					'title' 	=> __( 'Enable/Disable', 'woocommerce' ),
+					'title' 	=> __('Enable/Disable', 'woo_modnat_custom_shipping'),
 					'type' 		=> 'checkbox',
-					'label' 	=> __( 'Enable 7-11 Shipping', 'woocommerce' ),
+					'label' 	=> __('Enable 7-11 Shipping', 'woo_modnat_custom_shipping'),
 					'default' => 'no'
 				),
 				'title' => array(
-					'title' 		  => __( 'Method Title', 'woocommerce' ),
+					'title' 		  => __('Method Title', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'text',
-					'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-					'default'		  => __( '7-11 Shipping', 'woocommerce' ),
+					'description' => __('This controls the title which the user sees during checkout.', 'woo_modnat_custom_shipping'),
+					'default'		  => __('7-11 Shipping', 'woo_modnat_custom_shipping'),
 				),
 				'eshop_uid' => array(
 					'title' 		  => 'uid',
@@ -72,27 +72,27 @@ if ( ! class_exists( 'WC_Seven_Eleven_Shipping_Method' ) ) {
 					'default'		  => '208',
 				),
 				'eshop_servicetype' => array(
-					'title' 		  => 'Service Type',
+					'title' 		  => __('Service Type', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'select',
 					'options'		  => array('1' => '取貨付款', '3' => '取貨不付款'),
 				),
 				'eshop_hasoutside' => array(
-					'title' 		  => 'Has Outside',
+					'title' 		  => __('Has Outside', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'select',
 					'options'		  => array('1' => '顯示本島 + 離島全部門市',
 					'2' => '顯示本島 + 澎湖 + 綠島門市 ( 不含連江、金門門市 )',
 					'3' => '顯示本島門市'),
 				),
 				'flatrate_fee' => array(
-					'title' 		  => 'Flat rate fee (TWD)',
+					'title' 		  => __('Flat rate fee (TWD)', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'number',
-					'description' 	  => 'This sets the flat rate fee to charge for this shipping method.',
+					'description' 	  => __('This sets the flat rate fee to charge for this shipping method.', 'woo_modnat_custom_shipping'),
 					'default'		  => '50',
 				),
 				'freeshipping_threshold' => array(
-					'title' 		  => 'Free shipping threshold amount (TWD)',
+					'title' 		  => __('Free shipping threshold amount (TWD)', 'woo_modnat_custom_shipping'),
 					'type' 			  => 'number',
-					'description' 	  => 'This sets the cart total amount threshold for free shipping.',
+					'description' 	  => __('This sets the cart total amount threshold for free shipping.', 'woo_modnat_custom_shipping'),
 					'default'		  => '10000',
 				),
 			);
@@ -140,7 +140,7 @@ if ( ! class_exists( 'WC_Seven_Eleven_Shipping_Method' ) ) {
 			);
 
 			// Return form html
-			return $formObj->StoreMap('Select store', 'mapForm');
+			return $formObj->StoreMap(__('Select store', 'woo_modnat_custom_shipping'), 'mapForm');
 		}
 	}
 }
