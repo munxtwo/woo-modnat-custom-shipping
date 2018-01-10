@@ -55,9 +55,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	add_action('woocommerce_checkout_update_order_meta', 'action_woocommerce_checkout_save_fields');
 	function action_woocommerce_checkout_save_fields($order_id) {
 		if(!empty($_POST['store_id']) && !empty($_POST['store_address'])) {
-			update_post_meta($order_id, '_shipping_storeId', wc_clean($_POST['store_id']));
-			update_post_meta($order_id, '_shipping_storeName', wc_clean($_POST['store_name']));
-			update_post_meta($order_id, '_shipping_storeAddress', wc_clean($_POST['store_address']));
+			update_post_meta($order_id, 'shipping_storeId', wc_clean($_POST['store_id']));
+			update_post_meta($order_id, 'shipping_storeName', wc_clean($_POST['store_name']));
+			update_post_meta($order_id, 'shipping_storeAddress', wc_clean($_POST['store_address']));
 		}
 	}
 
@@ -66,11 +66,11 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	 */
 	add_filter('woocommerce_order_formatted_shipping_address', 'custom_order_formatted_shipping_address', 10, 2);
 	function custom_order_formatted_shipping_address($address, $order) {
-		if (!empty(get_post_meta($order->get_id(), '_shipping_storeName', true))) {
+		if (!empty(get_post_meta($order->get_id(), 'shipping_storeName', true))) {
 			$address = array(
-				'store_id' => get_post_meta($order->get_id(), '_shipping_storeId', true),
-				'store_name' => get_post_meta($order->get_id(), '_shipping_storeName', true),
-				'store_address' => get_post_meta($order->get_id(), '_shipping_storeAddress', true)
+				'store_id' => get_post_meta($order->get_id(), 'shipping_storeId', true),
+				'store_name' => get_post_meta($order->get_id(), 'shipping_storeName', true),
+				'store_address' => get_post_meta($order->get_id(), 'shipping_storeAddress', true)
 	    	);
 		}
 
