@@ -102,8 +102,19 @@ if ( ! class_exists( 'WC_Seven_Eleven_Shipping_Method' ) ) {
          * Calculates shipping cost.
          */
         public function calculate_shipping($package = array()) {
+			// Check if coupon with free shipping was applied
+			$has_coupon = false;
+			if ($coupons = WC()->cart->get_coupons()) {
+				foreach($coupons as $coupon) {
+					if ($coupon->is_valid() && $coupon->get_free_shipping()) {
+						$has_coupon = true;
+						break;
+					}
+				}
+			}
+
 			$cart_total = WC()->cart->cart_contents_total;
-			if ($cart_total >= $this->freeshipping_threshold) {
+			if ($cart_total >= $this->freeshipping_threshold || $has_coupon) {
 				$cost = 0;
 			} else {
 				$cost = $this->flatrate_fee;
