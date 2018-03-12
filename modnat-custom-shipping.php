@@ -216,9 +216,11 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			document.getElementById('store_name').setAttribute("readonly", true);
 			document.getElementById('store_name').value = '';
 			document.getElementById('store_name_field').style.display = 'none';
+			document.getElementById("store_name_field").querySelector("div").classList.add("fl-is-active");
 			document.getElementById('store_address').setAttribute("readonly", true);
 			document.getElementById('store_address').value = '';
 			document.getElementById('store_address_field').style.display = 'none';
+			document.getElementById("store_address_field").querySelector("div").classList.add("fl-is-active");
 		</script>
 		<?php
 	}
